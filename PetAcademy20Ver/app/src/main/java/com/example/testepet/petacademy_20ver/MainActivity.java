@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         //btnScan = (Button) findViewById(R.id.btnScan);
         final Activity activity = this;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 integrator.setPrompt("Camera Scan");
                 integrator.setCameraId(0);
                 integrator.initiateScan();
+                alert("Bem-vindo ao 20ver, aproxime a sua câmera da etiqueta contendo o QRcode para escutar informações sobre o vestuário");
         //    }
        // });
     }
@@ -42,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
         if(result != null){
             if(result.getContents() != null){
                 alert(result.getContents());
-            }else{
+            }/*else{
                 alert("Scan cancelado");
-            }
+            }*/
         }else {
 
             super.onActivityResult(requestCode, resultCode, data);
